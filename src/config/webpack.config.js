@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const BUILD_DIRNAME = path.join(__dirname, '../../dist');
 const APP_DIRNAME = path.join(__dirname, '..');
@@ -14,7 +15,12 @@ const cssLoader = {
     use: [ 'style-loader', 'css-loader']
 };
 
-const imageLoader = {
+const scssLoader = {
+    test: /\.scss/,
+    use: [ 'style-loader', 'css-loader', 'sass-loader']
+};
+
+const fileLoader = {
     test: /\.(jpe?g|png|gif|svg)$/i,
     use: 'file-loader'
 };
@@ -29,9 +35,15 @@ const config = {
         rules: [
             babelLoader,
             cssLoader,
-            imageLoader
+            scssLoader,
+            fileLoader
         ]
-    }
+    },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: 'src/public/index.html'
+        })
+    ]
 };
 
 module.exports = config;

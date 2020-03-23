@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import './main.css';
-import Logo from './logo.jpg';
+import './main.scss';
 
 class App extends Component{
+
     render() {
+        debugger;
         return(
             <>
                 <div>Hello world</div>
