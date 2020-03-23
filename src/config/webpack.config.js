@@ -3,6 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const BUILD_DIRNAME = path.join(__dirname, '../../dist');
 const APP_DIRNAME = path.join(__dirname, '..');
+const VENDOR_LIBS = [ 'react', 'react-dom'];
 
 const babelLoader = {
     test: /\.(js|jsx)/,
@@ -26,10 +27,13 @@ const fileLoader = {
 };
 
 const config = {
-    entry: APP_DIRNAME + '/index.js',
+    entry: {
+        bundle: APP_DIRNAME + '/index.js',
+        vendor: VENDOR_LIBS
+    },
     output: {
         path: BUILD_DIRNAME,
-        filename: './bundle.js'
+        filename: './[name].js'
     },
     module: {
         rules: [
@@ -42,8 +46,22 @@ const config = {
     plugins: [
         new htmlWebpackPlugin({
             template: 'src/public/index.html'
-        })
-    ]
+        }),
+        // new webpack.optimize.splitChunks({
+        //     names: [ 'vendor', 'manifest']
+        // })
+    ],
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendor",
+                    chunks: "all"
+                }
+            }
+        }
+    }
 };
 
 module.exports = config;
