@@ -1,8 +1,12 @@
-console.log("Hello world");
-console.log("Hello world");
-console.log("Hello world");
-async function f (a) {
-    return await Promise.resolve(1 + a);
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+
+class App extends Component{
+    render() {
+        return(
+            <div>Hello world</div>
+        );
+    }
 }
 
-f(78).then(console.log);
+render(<App/>, document.getElementById('root'));
