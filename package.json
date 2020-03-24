@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch --config src/config/webpack.config.js",
+    "dev": "npm run clean && webpack -d --config src/config/webpack.config.js",
+    "clean": "rimraf dist",
     "http-server": "http-server dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2"
   }
 }
