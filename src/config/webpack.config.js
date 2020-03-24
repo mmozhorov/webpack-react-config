@@ -33,8 +33,11 @@ const config = {
         vendor: VENDOR_LIBS
     },
     output: {
-        path: BUILD_DIRNAME,
-        filename: './[name].[chunkhash].js'
+        // path: BUILD_DIRNAME,
+        // filename: './[name].[chunkhash].js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: './[name].[chunkhash].js',
+        publicPath: '/'
     },
     module: {
         rules: [

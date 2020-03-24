@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import './main.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
+import './App.css';
 
-class App extends Component{
-    render() {
-        return(
-            <React.Fragment>
-                <div>Helaslo world</div>
-            </React.Fragment>
-        );
-    }
-}
-
-render(<App/>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
