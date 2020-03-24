@@ -61,6 +61,9 @@ const config = {
                 }
             }
         }
+    },
+    devServer: {
+        contentBase: BUILD_DIRNAME
     }
 };
 

@@ -5,9 +5,9 @@ import './main.scss';
 class App extends Component{
     render() {
         return(
-            <>
+            <React.Fragment>
                 <div>Hello world</div>
-            </>
+            </React.Fragment>
         );
     }
 }
