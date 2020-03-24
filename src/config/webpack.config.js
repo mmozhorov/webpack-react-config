@@ -4,6 +4,7 @@ const path = require('path');
 const BUILD_DIRNAME = path.join(__dirname, '../../dist');
 const APP_DIRNAME = path.join(__dirname, '..');
 const VENDOR_LIBS = [ 'react', 'react-dom'];
+const PORT = 3000;
 
 const babelLoader = {
     test: /\.(js|jsx)/,
@@ -63,7 +64,9 @@ const config = {
         }
     },
     devServer: {
-        contentBase: BUILD_DIRNAME
+        contentBase: BUILD_DIRNAME,
+        compress: true,
+        port: PORT
     }
 };
 

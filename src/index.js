@@ -6,7 +6,7 @@ class App extends Component{
     render() {
         return(
             <React.Fragment>
-                <div>Hello world</div>
+                <div>Helaslo world</div>
             </React.Fragment>
         );
     }
